@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>Manage Users</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+<div class="container my-2">
+    <div class="header__logo">
+        <img alt="" class="img-fluid" th:src="@{/assets/images/logo/logo-dark.png}">
+    </div>
+    <div class="alert alert-success" style="color: greenyellow" th:if="${isUpdated == true}">
+        Updated Successfully.
+    </div>
+    <div class="alert alert-success" style="color: greenyellow" th:if="${isAdded == true}">
+        Added Successfully.
+    </div>
+    <div class="alert alert-success" style="color: greenyellow" th:if="${isDeleted == true}">
+        Deleted Successfully.
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <div class="container my-5" th:switch="${users}">
+                <p class="my-5">
+                    <a class="btn btn-primary" th:href="@{/user}"><i
+                            class="fas fa-user-plus ml-2">Add User</i></a>
+                </p>
+                <div class="col-md-10">
+                    <h2 th:case="null">No Users yet!</h2>
+                    <div th:case="*">
+                        <table class="table table-striped table-responsive-md">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user : ${users}">
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td><a class="btn btn-primary" th:href="@{/user/delete/{id}(id=${user.id})}"><i
+                                        class="fas fa-trash-alt"></i></a></td>
+                                <td><a class="btn btn-primary" target="_blank" th:href="@{/user/{id}(id=${user.id})}"><i
+                                        class="fas fa-edit"></i></a></td>
+
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <a class="btn btn-primary" style="margin: 1%" th:href="@{/}">Home</a>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
