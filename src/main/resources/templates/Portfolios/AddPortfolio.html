@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>Add Portfolio</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+<div class="container my-5">
+    <div class="header__logo">
+        <img alt="" class="img-fluid" th:src="@{/assets/images/logo/logo-dark.png}">
+    </div>
+    <h3>Add Portfolio</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" enctype="multipart/form-data" method="post" th:action="@{/portfolio}"
+                      th:object="${portfolio}">
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+                            <label class="col-form-label" for="name">Name</label> <input class="form-control" id="name"
+                                                                                         placeholder="Name"
+                                                                                         th:field="*{name}"
+                                                                                         type="text"> <span
+                                class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label class="col-form-label" for="name">Bio</label> <textarea class="form-control" id="bio"
+                                                                                           placeholder="Bio"
+                                                                                           th:field="*{bio}"
+                                                                                           type="text"> </textarea>
+                            <span class="text-danger" th:errors="*{bio}" th:if="${#fields.hasErrors('bio')}"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input name="image" type="file" value="Upload Image">
+                        </div>
+
+                        <div class="col-md-6">
+                            <input class="btn btn-primary" type="submit" value="Add Portfolio">
+                        </div>
+
+                        <div class="form-group col-md-8"></div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
