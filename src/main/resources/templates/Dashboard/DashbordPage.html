@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <title>HomePage</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+          integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+
+<body>
+<!-- brand logo -->
+
+<div class="container my-5">
+    <div class="header__logo">
+        <img alt="" class="img-fluid" th:src="@{/assets/images/logo/logo-dark.png}">
+    </div>
+    <h3>Home</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <a class="btn btn-primary" style="margin: 1%" th:href="@{/?choose=teamMembers}">Team Members</a>
+            </div>
+            <div class="col-md-10">
+                <a class="btn btn-primary" style="margin: 1%" th:href="@{/?choose=partner}">Partners</a>
+            </div>
+            <div class="col-md-10">
+                <a class="btn btn-primary" style="margin: 1%" th:href="@{/?choose=portfolio}">Portfolios</a>
+            </div>
+            <div class="col-md-10">
+                <a class="btn btn-primary" style="margin: 1%" th:href="@{/?choose=guest}">Guests</a>
+            </div>
+            <div class="col-md-10">
+                <a class="btn btn-primary" style="margin: 1%" th:href="@{/?choose=user}">Users</a>
+            </div>
+            <div class="col-md-10">
+                <a class="btn btn-primary" style="margin: 1%" th:href="@{/logout}">Logout</a>
+            </div>
+
+        </div>
+    </div>
+    <div class="deactivated">
+    </div>
+
+</div>
+</body>
+
+</html>
